@@ -1,7 +1,7 @@
 ---
-id: api-reference
-title: HTTP API endpoints reference
-sidebar_label: API endpoints reference
+id: json-querying-api
+title: JSON querying API
+sidebar_label: JSON querying
 ---
 
 <!--
@@ -23,25 +23,14 @@ sidebar_label: API endpoints reference
   ~ under the License.
   -->
 
+This document describes the API endpoints to submit JSON-based [native queries](../querying/querying.md) to Apache Druid.
 
-This topic is an index to the Apache Druid API documentation.
+## Queries
 
-## HTTP APIs
-* [Automatic compaction](./automatic-compaction-api.md)
-* [Data management](./data-management-api.md)
-* [Dynamic configuration](./dynamic-configuration-api.md)
-* [JSON querying](./json-querying-api.md)
-* [Lookups](./lookups-api.md)
-* [Retention rules](./retention-rules-api.md)
-* [Service status](./service-status-api.md)
-* [Druid SQL queries](./sql-api.md)
-* [Supervisor](./supervisor-api.md)
-* [Tasks](./tasks-api.md)
-* [Legacy metadata](./legacy-metadata-api.md)
+`POST /druid/v2/`
 
-## Java APIs
-* [SQL JDBC driver](./sql-jdbc.md)
+The endpoint for submitting queries. Accepts an option `?pretty` that pretty prints the results.
 
+`POST /druid/v2/candidates/`
 
-
-
+Returns segment information lists including server locations for the given query.
