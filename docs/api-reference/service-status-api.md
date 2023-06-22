@@ -30,7 +30,7 @@ post { color: green; font-weight: bold }
 
 This document describes the API endpoints to retrieve service (process) status, cluster information for Apache Druid.
 
-> In this document, `{domain}` is a placeholder for the server address of deployment.
+In this document, `{domain}` is a placeholder for the server address of deployment.
 
 ## Common
 
@@ -412,8 +412,7 @@ print(response.text)
 #### URL
 <get>`GET`</get> `/status/selfDiscovered`
 
-Similar to `/status/selfDiscovered/status`, but returns 200 OK response with empty body if the node has discovered itself
-and 503 SERVICE UNAVAILABLE if the node hasn't discovered itself yet. This endpoint might be useful because some
+Similar to `/status/selfDiscovered/status`, but returns status codes. This endpoint might be useful because some
 monitoring checks such as AWS load balancer health checks are not able to look at the response body.
 
 #### Responses
@@ -1000,18 +999,17 @@ print(response.text)
 #### URL
 <get>`GET`</get> `/druid/historical/v1/readiness`
 
-Similar to `/druid/historical/v1/loadstatus`, but instead of returning JSON with a flag, responses 200 OK if segments
-in the local cache have been loaded, and 503 SERVICE UNAVAILABLE, if they haven't.
+Similar to `/druid/historical/v1/loadstatus`, but instead of returning JSON with a flag, it returns status codes.
 
 #### Responses
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--200 SUCCESS-->
 <br/>
-*Segments successfully loaded*  
+*Segments in local cache successfully loaded*  
 <!--503 SERVICE UNAVAILABLE-->
 <br/>
-*Segments have not been loaded*  
+*Segments in local cache have not been loaded*  
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -1089,7 +1087,7 @@ print(response.text)
 #### URL
 <get>`GET`</get> `/druid/broker/v1/readiness`
 
-Similar to `/druid/broker/v1/loadstatus`, but instead of returning a JSON, responses 200 OK if its ready and otherwise 503 SERVICE UNAVAILABLE.
+Similar to `/druid/broker/v1/loadstatus`, but instead of returning a JSON, it returns status codes.
 
 #### Responses
 <!--DOCUSAURUS_CODE_TABS-->
